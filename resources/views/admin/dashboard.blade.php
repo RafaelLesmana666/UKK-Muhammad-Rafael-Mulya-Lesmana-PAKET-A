@@ -2,6 +2,20 @@
 @section('title', "Pengaduan Masyarakat")
 @section('konten')
 
+<div style="display: flex;gap: 2rem;">
+    <div class="cardJumlah">
+        <p style="color: white;padding-left: 6px;">Jumlah Pengaduan</p>
+        <p style="color: white;font-size: 1.75rem;text-align: right;padding-right: 8px;">{{ $jumlah }}</p>
+    </div>
+
+    <div class="cardJumlah">
+        <p style="color: white;padding-left: 6px;">Jumlah Pending</p>
+        <p style="color: white;font-size: 1.75rem;text-align: right;padding-right: 8px;">{{ $Jpending }}</p>
+    </div>
+</div>
+
+
+
  @if (Auth::user()->role == 'admin')
     <div class="buttonC">
         <a href="/cetak">Cetak PDF</a>

@@ -16,7 +16,7 @@
     </tr>
     <tr>
         <th>Foto</th>
-        <td><img src={{ url("/image/" . $detail->foto)}}</td>
+        <td><img style="width: 10rem;height: 10rem;margin: 1rem;" src="{{ url('/foto/' . $detail->foto)}}"></td>
     </tr>
     <tr>
         <th>Status</th>

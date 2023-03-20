@@ -21,7 +21,7 @@ class PengaduanController extends Controller
             'tgl_laporan',
             'nik',
             'isi_laporan' => 'required',
-            'foto' => 'nullable',
+            'foto' => 'required',
             'status',
         ]);
 
@@ -33,8 +33,8 @@ class PengaduanController extends Controller
         if($file = $request->hasFile('foto')){
             $file = $request->file('foto');
             $imagename = $file->getClientOriginalName();
-            $destination = public_path() . '/foto/';
-            $file->move($imagename, $destination);  
+            $destination = public_path() . '/foto';
+            $file->move($destination, $imagename);
 
             $data['foto'] = $imagename;
 
@@ -56,7 +56,16 @@ class PengaduanController extends Controller
 
     public function show(){
         $pengaduan = Pengaduan::orderBy('id','asc')->simplePaginate(5);
-        return view('admin.dashboard',['pengaduan' => $pengaduan]);
+        $jumlah = Pengaduan::count('id');
+        $status = "proses";
+        $pending = Pengaduan::where('status', $status);
+        dd($pending);
+        return view('admin.dashboard',
+        [
+            'pengaduan' => $pengaduan,
+            'jumlah' => $jumlah,
+            'Jpending' => $pe
+        ]);
     }
 
     public function detail($id){

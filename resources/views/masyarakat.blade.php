@@ -17,7 +17,7 @@
     
     <div class="container">
         <div class="card">
-            <form method="POST" action="/masyarakat">
+            <form method="POST" action="/masyarakat" enctype="multipart/form-data">
                 <div class="table">
                     @csrf
                     <label for="laporan">Laporan</label>

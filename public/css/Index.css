@@ -78,7 +78,8 @@ h3 {
 
 
 .header {
-    padding: 2rem;
+    padding-top: 2rem;
+    padding-left: 2rem;
     display: flex;
     align-items: center;
 }
@@ -213,7 +214,7 @@ select {
 }
 
 .valid {
-    width: 4rem;
+    width: 35rem;
     height: 2rem;
     padding: 2px;
     background-color: rgb(16, 191, 22);
@@ -222,4 +223,13 @@ select {
     margin-top: 2rem;
     color: white;
     cursor: pointer;
+}
+
+.cardJumlah {
+    width: 12rem;
+    height: 6rem;
+    background-color: #4a7d99;
+    margin-bottom: 1rem;
+    border-radius: 0.5rem;
+    padding-right: 1rem;
 }
