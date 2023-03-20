@@ -1,0 +1,87 @@
+@import url('https://fonts.googleapis.com/css2?family=Lexend+Deca:wght@200;400&display=swap');
+
+body{
+    padding: 0;
+    margin: 0;
+    font-family: 'Lexend Deca', sans-serif;
+    background: rgb(255, 182, 119);
+    color: white;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    position: relative;
+    width: 100%;
+}
+.title {
+    font-size: large;
+    text-align: center;
+}
+.form-register {
+    margin-top: 0.5rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.formRegis {
+    background-color: white;
+    color: black;
+    padding: 1.5rem;
+    border-radius: 1rem;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+input {
+    width: 370px;
+    height: 30px;
+    padding: 0 10px;
+    border-radius: 2rem;
+    border-color: rgba(182, 153, 168, 0.63);
+}
+
+.image-left {
+    position: absolute;
+    left: 0;
+    top: 16rem;
+}
+.image-right {
+    position: absolute;
+    right: 0;
+    top: 16rem;
+    transform: scaleX(-1);
+}
+
+img{
+    width: 28rem;
+    height: 20rem;
+}
+
+button {
+    margin-top: 1rem;
+    padding: 0.5rem 0;
+    border-radius: 2rem;
+    border: none;
+    background-color: rgb(255, 131, 100);
+    color: white;
+    font-size: large;
+    cursor: pointer;
+    margin-bottom: 10px;
+}
+
+button:hover {
+    background-color: rgb(220, 81, 46);
+}
+
+a{
+    text-decoration: none;
+    color: red;
+}
+
+a:hover{
+    text-decoration: underline;
+}

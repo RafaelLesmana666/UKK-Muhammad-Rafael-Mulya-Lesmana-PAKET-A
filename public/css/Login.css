@@ -1,0 +1,94 @@
+@import url('https://fonts.googleapis.com/css2?family=Lexend+Deca:wght@200;400&display=swap');
+
+body{
+    padding: 0;
+    margin: 0;
+    font-family: 'Lexend Deca', sans-serif;
+    background: rgb(255, 182, 119);
+}
+
+.container {
+    display: flex;
+    position: relative;
+    width: 100%;
+}
+
+h1{
+    text-align: center;
+}
+
+.form-login {
+    margin-top: 6rem;
+    display: flex;
+    flex-direction: column;
+    margin-left: 6rem;
+    position: absolute;
+    right: 6rem;
+}
+
+.formLog {
+    background-color: white;
+    color: black;
+    padding: 1rem 2rem 4rem;
+    border-radius: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+input {
+    width: 370px;
+    height: 30px;
+    padding: 0 10px;
+    border-radius: 2rem;
+    border-color: rgba(182, 153, 168, 0.63);
+    margin: 0.5rem 0;
+}
+
+button {
+    margin-top: 3rem;
+    padding: 0.5rem 0;
+    border-radius: 2rem;
+    border: none;
+    background-color: rgb(255, 131, 100);
+    color: white;
+    font-size: large;
+    cursor: pointer;
+    margin-bottom: 10px;
+}
+
+button:hover {
+    background-color: rgb(220, 81, 46);
+}
+
+a{
+    text-decoration: none;
+    color: red;
+}
+
+a:hover{
+    text-decoration: underline;
+}
+
+small {
+    margin-top: 6px;
+}
+.right {
+    position: absolute;
+    left: 8rem;
+    top: 2rem;
+}
+
+p {
+    color: white;
+    font-size: x-large;
+    font-weight: bold;
+    width: 2rem;
+}
+
+img {
+    width: 30rem;
+    height: 24rem;
+}
+
+

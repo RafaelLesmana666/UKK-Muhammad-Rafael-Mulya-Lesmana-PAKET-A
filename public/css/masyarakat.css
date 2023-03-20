@@ -1,0 +1,66 @@
+@import url('https://fonts.googleapis.com/css2?family=Lexend+Deca:wght@200;400&display=swap');
+
+body{
+    padding: 0;
+    margin: 0;
+    font-family: 'Lexend Deca', sans-serif;
+    background: rgb(255, 182, 119);
+}
+
+.container {
+    display: flex;
+    position: relative;
+    width: 100%;
+    justify-content: center;
+    z-index: 0;
+}
+
+.alert {
+    z-index: 10;
+}
+
+.card {
+    background-color: white;
+    padding: 1rem 1.5rem;
+    margin-top: 3rem;
+    border-radius: 1rem;
+    z-index: 0;
+}
+
+.table {
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    padding: 8px 0;
+}
+
+.tanggal {
+    padding: 2px 12px 2px;
+    border-radius: 1rem;
+    border-color: rgba(182, 153, 168, 0.63);
+}
+
+.laporan {
+    padding: 8px 12px;
+    height: 12rem;
+    border-radius: 1rem;
+    border-color: rgba(182, 153, 168, 0.63);
+}
+
+.foto {
+    margin-bottom: 4rem;
+}
+
+button {
+    margin-top: 1.5rem;
+    padding: 0.5rem 0;
+    border-radius: 2rem;
+    border: none;
+    background-color: rgb(255, 131, 100);
+    color: white;
+    font-size: large;
+    cursor: pointer;
+    margin-bottom: 10px;
+}
