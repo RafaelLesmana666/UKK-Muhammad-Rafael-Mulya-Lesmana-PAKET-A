@@ -23,10 +23,8 @@ class LoginController extends Controller
         if(Auth::attempt($auth)){
             $request->session()->regenerate();
 
-            if(Auth::user()->role == 'admin'){
+            if(Auth::user()->role == 'admin'|| Auth::user()->role == 'petugas'){
                 return redirect('/admin');
-            }elseif(Auth::user()->role == 'petugas'){
-                return redirect('/petugas');
             }else {
                 return redirect('/masyarakat');
             }

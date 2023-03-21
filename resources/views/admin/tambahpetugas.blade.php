@@ -6,6 +6,7 @@
     </div>
 </div>
 <table class="table" border="1">
+    <h4>Daftar Petugas</h4>
     <thead>
         <th>ID Petugas</th>
         <th>Nama Petugas</th>
@@ -32,4 +33,6 @@
     </tr> 
     @endforeach
 </table>
+
+{{ $petugas->links()}}
 @endsection

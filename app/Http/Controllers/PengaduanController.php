@@ -14,14 +14,19 @@ use \PDF;
 class PengaduanController extends Controller
 {
     public function index(){
-       return view('masyarakat');
+        $user = Auth::user()->username;
+        $nama = Masyarakat::where('username',$user)->first();
+        $nik = $nama['nik'];
+        $pengaduan = Pengaduan::leftjoin('tanggapans','pengaduans.id','=','tanggapans.id_pengaduan')->get();
+        return view('masyarakat',['pengaduan' => $pengaduan->where('nik', $nik,)]);
     }
+
     public function store(Request $request){    
         $data = $request->validate([
             'tgl_laporan',
             'nik',
             'isi_laporan' => 'required',
-            'foto' => 'required',
+            'foto' => 'nullable',
             'status',
         ]);
 
@@ -48,23 +53,97 @@ class PengaduanController extends Controller
 
     }
 
-    public function cetak(){
-        $pengaduan = Pengaduan::all();
-        $pdf = PDF::loadview('admin.laporanPDF',['pengaduan' => $pengaduan]);
-        return $pdf->stream();
+    public function cetak($cetak){
+        if($cetak == 'pending'){
+            $pengaduan = Pengaduan::where('status','pending')->get();
+            $pdf = PDF::loadview('admin.laporanPDF',['pengaduan' => $pengaduan]);
+            return $pdf->stream();
+        }elseif($cetak == 'proses'){
+            $pengaduan = Pengaduan::where('status','proses')->get();
+            $pdf = PDF::loadview('admin.laporanPDF',['pengaduan' => $pengaduan]);
+            return $pdf->stream();
+        }elseif($cetak == 'selesai'){
+            $pengaduan = Pengaduan::where('status','selesai')->get();
+            $pdf = PDF::loadview('admin.laporanPDF',['pengaduan' => $pengaduan]);
+            return $pdf->stream();
+        }elseif($cetak == 'semua'){
+            $pengaduan = Pengaduan::all();
+            $pdf = PDF::loadview('admin.laporanPDF',['pengaduan' => $pengaduan]);
+            return $pdf->stream();
+        }else {
+
+        }
     }
 
     public function show(){
         $pengaduan = Pengaduan::orderBy('id','asc')->simplePaginate(5);
         $jumlah = Pengaduan::count('id');
-        $status = "proses";
-        $pending = Pengaduan::where('status', $status);
-        dd($pending);
+        $pending = Pengaduan::where('status','pending')->count();
+        $proses = Pengaduan::where('status','proses')->count();
+        $selesai = Pengaduan::where('status','selesai')->count();
+        $cetak = 'semua';
         return view('admin.dashboard',
         [
             'pengaduan' => $pengaduan,
             'jumlah' => $jumlah,
-            'Jpending' => $pe
+            'pending' => $pending,
+            'proses' => $proses,
+            'selesai' => $selesai,
+            'cetak' => $cetak
+        ]);
+    }
+
+    public function filterPending(){
+        $pengaduan = Pengaduan::where('status','pending')->simplePaginate(5);
+        $jumlah = Pengaduan::count('id');
+        $pending = Pengaduan::where('status','pending')->count();
+        $proses = Pengaduan::where('status','proses')->count();
+        $selesai = Pengaduan::where('status','selesai')->count();
+        $cetak = 'pending';
+        return view('admin.dashboard',
+        [
+            'pengaduan' => $pengaduan,
+            'jumlah' => $jumlah,
+            'pending' => $pending,
+            'proses' => $proses,
+            'selesai' => $selesai,
+            'cetak' => $cetak
+        ]);
+    }
+
+    public function filterProses(){
+        $pengaduan = Pengaduan::where('status','proses')->simplePaginate(5);
+        $jumlah = Pengaduan::count('id');
+        $pending = Pengaduan::where('status','pending')->count();
+        $proses = Pengaduan::where('status','proses')->count();
+        $selesai = Pengaduan::where('status','selesai')->count();
+        $cetak = 'proses';
+        return view('admin.dashboard',
+        [
+            'pengaduan' => $pengaduan,
+            'jumlah' => $jumlah,
+            'pending' => $pending,
+            'proses' => $proses,
+            'selesai' => $selesai,
+            'cetak' => $cetak
+        ]);
+    }
+
+    public function filterSelesai(){
+        $pengaduan = Pengaduan::where('status','selesai')->simplePaginate(5);
+        $jumlah = Pengaduan::count('id');
+        $pending = Pengaduan::where('status','pending')->count();
+        $proses = Pengaduan::where('status','proses')->count();
+        $selesai = Pengaduan::where('status','selesai')->count();
+        $cetak = 'selesai';
+        return view('admin.dashboard',
+        [
+            'pengaduan' => $pengaduan,
+            'jumlah' => $jumlah,
+            'pending' => $pending,
+            'proses' => $proses,
+            'selesai' => $selesai,
+            'cetak' => $cetak
         ]);
     }
 

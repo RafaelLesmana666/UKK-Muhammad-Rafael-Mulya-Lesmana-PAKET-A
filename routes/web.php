@@ -30,8 +30,10 @@ Route::post('/register',[LoginController::class, 'store']);
 Route::get('/masyarakat',[PengaduanController::class, 'index']);
 Route::post('/masyarakat',[PengaduanController::class, 'store']);
 Route::get('/admin', [PengaduanController::class, 'show']);
-Route::get('/petugas',[PengaduanController::class, 'show']);
-Route::get('/cetak',[PengaduanController::class, 'cetak']);
+Route::get('/filterPending',[PengaduanController::class ,'filterPending']);
+Route::get('/filterProses',[PengaduanController::class ,'filterProses']);
+Route::get('/filterSelesai',[PengaduanController::class ,'filterSelesai']);
+Route::get('/cetak/{cetak}',[PengaduanController::class, 'cetak']);
 Route::get('/detail/{id}',[PengaduanController::class, 'detail']);
 Route::post('/detail/{id}',[PengaduanController::class, 'validasi']);
 

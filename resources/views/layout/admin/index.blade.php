@@ -12,8 +12,8 @@
     <div class="container">
         <div class="sidebar">
             <div class="logo">
-                <img src="/img/megaphone.png" class="icon">
-                <h3>Pengaduan Masyarakat</h3>
+                <img src="/kab.png" class="icon">
+                <h3>Pengaduan Masyarakat Cigombong</h3>
             </div>
             <div class="nav">
                 <a href="/admin">Daftar Pengaduan</a>
@@ -29,8 +29,8 @@
         </div>
         <div class="content">
             <div class="header">
-                <h1>
-                @php
+                <h1> Selamat Datang
+                <!-- @php
                     $Hour = date('G');
 
                     if ( $Hour >= 0 && $Hour <= 10 ) {
@@ -42,7 +42,7 @@
                     } else {
                         echo "Good Night";
                     }
-                @endphp
+                @endphp -->
                 </h1>
                 <div class="profil">
                     <div class="info-profil">

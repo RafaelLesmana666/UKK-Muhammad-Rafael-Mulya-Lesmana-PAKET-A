@@ -29,9 +29,28 @@
             </form>
             <form action="/logout" method="POST">
                 @csrf
-                <button class="">Keluar</button>
+                <button class="logout">Keluar</button>
             </form>
         </div>
+        <div class="card1" style="margi-left: 4rem;">
+            <table>
+                <thead>
+                    <th>Tanggal laporan</th>
+                    <th>Laporan</th>
+                    <th>Status</th>
+                    <th>Tanggapan</th>
+                </thead>
+                @foreach( $pengaduan as $p)
+                    <tr>
+                        <td>{{ $p->tgl_laporan }}</td>
+                        <td>{{ $p->isi_laporan }}</td>
+                        <td>{{ $p->status }}</td>
+                        <td>{{ $p->tanggapan }}</td>
+                    </tr>
+                @endforeach
+                </tbody>
+            </table>
+</div>
     </div>
 </body>
 </html>

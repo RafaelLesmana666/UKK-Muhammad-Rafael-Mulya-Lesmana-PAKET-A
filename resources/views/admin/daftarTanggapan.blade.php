@@ -1,6 +1,7 @@
 @extends('layout.admin.index')
 @section('konten')
 <table class="table" border="1">
+    <h4>Daftar Tanggapan</h4>
     <thead>
         <th>No</th>
         <th>Tanggal Tanggapan</th>
@@ -25,4 +26,5 @@
     </tr> 
     @endforeach
 </table>
+ {{ $tanggapan->links() }}
 @endsection
